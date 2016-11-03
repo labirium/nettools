@@ -5,24 +5,24 @@ namespace network
 namespace logger
 {
 
-/// @brief Информационное поле
+/// @brief РРЅС„РѕСЂРјР°С†РёРѕРЅРЅРѕРµ РїРѕР»Рµ
 void Info(const char*, ...) throw();
-/// @brief Предупреждение
+/// @brief РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ
 void Warning(const char*, ...) throw();
-/// @brief Ошибка
+/// @brief РћС€РёР±РєР°
 void Error(const char*, ...)throw() ;
 
 
-/// @brief Детализация хоста
+/// @brief Р”РµС‚Р°Р»РёР·Р°С†РёСЏ С…РѕСЃС‚Р°
 ///
 void dump(const HostProfilePtr& host) throw();
-/// @brief Детализация списка хостов
+/// @brief Р”РµС‚Р°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С…РѕСЃС‚РѕРІ
 ///
 void dump(const HostProfileList& hostProfiles) throw();
-/// @brief Детализация интерфейса
+/// @brief Р”РµС‚Р°Р»РёР·Р°С†РёСЏ РёРЅС‚РµСЂС„РµР№СЃР°
 ///
 void dump(const EthernetProfilePtr& ethernetProfile) throw();
-/// @brief Детализация списка интерфейсов
+/// @brief Р”РµС‚Р°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° РёРЅС‚РµСЂС„РµР№СЃРѕРІ
 ///
 void dump(const EthernetHostProfileList& ethernetHostProfile) throw();
 

@@ -2,49 +2,49 @@
 
 namespace networktools
 {
-/// @breif Возвращает описание сетевого интерфейса
+/// @breif Р’РѕР·РІСЂР°С‰Р°РµС‚ РѕРїРёСЃР°РЅРёРµ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 ///
 class EthernetProfile : public networktools::manager::IEthernetProfile
 {
 public:
-	/// @brief Конструктор
+	/// @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	explicit EthernetProfile(const network::EthernetProfilePtr& ethernetProfile );
-	/// @brief Деструктор
+	/// @brief Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	~EthernetProfile();
 protected:
-	/// @brief Возвращает COM объект
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ COM РѕР±СЉРµРєС‚
 	///
 	HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, _COM_Outptr_ void __RPC_FAR *__RPC_FAR *ppvObject);
-	/// @breif Осуществляет увеличение ссылки COM объекта
+	/// @breif РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СѓРІРµР»РёС‡РµРЅРёРµ СЃСЃС‹Р»РєРё COM РѕР±СЉРµРєС‚Р°
 	///
 	ULONG STDMETHODCALLTYPE AddRef(void);
-	/// @breif Осуществляет уменьшение ссылки COM объекта
+	/// @breif РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СѓРјРµРЅСЊС€РµРЅРёРµ СЃСЃС‹Р»РєРё COM РѕР±СЉРµРєС‚Р°
 	///
 	ULONG STDMETHODCALLTYPE Release(void);
 public:
-	/// @brief Возвращает индекс сетевого интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРЅРґРµРєСЃ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	///
 	uint64_t STDMETHODCALLTYPE GetIndex(void) const throw();
-	/// @brief Возвращает true если определен признак VPN
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ true РµСЃР»Рё РѕРїСЂРµРґРµР»РµРЅ РїСЂРёР·РЅР°Рє VPN
 	///
 	bool STDMETHODCALLTYPE IsVpn(void) const throw();
-	/// @brief Возвращает имя интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ РёРЅС‚РµСЂС„РµР№СЃР°
 	///
 	BSTR STDMETHODCALLTYPE GetName(void) const throw();
-	/// @brief Возвращает описание интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РѕРїРёСЃР°РЅРёРµ РёРЅС‚РµСЂС„РµР№СЃР°
 	///
 	BSTR STDMETHODCALLTYPE GetDescription(void) const throw();
 public:
-	/// @brief Возвращает список сетевых настроек
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЃРµС‚РµРІС‹С… РЅР°СЃС‚СЂРѕРµРє
 	///
 	SAFEARRAY FAR* STDMETHODCALLTYPE GetInterfaceProfiles(void) const throw();
 private:
-	/// описание сетевого интерфейса
+	/// РѕРїРёСЃР°РЅРёРµ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	network::EthernetProfilePtr ethernetProfile_;
 private:
-	/// Содержит количество ссылок на объект
+	/// РЎРѕРґРµСЂР¶РёС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃСЃС‹Р»РѕРє РЅР° РѕР±СЉРµРєС‚
 	ULONG ref_;
 };
 }

@@ -9,9 +9,9 @@ using namespace network::ethernet;
 
 namespace
 {
-/// @brief Возвращает свойства интерфейса
+/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРІРѕР№СЃС‚РІР° РёРЅС‚РµСЂС„РµР№СЃР°
 ///
-/// @param[in] interface интерфейс на обработку
+/// @param[in] interface РёРЅС‚РµСЂС„РµР№СЃ РЅР° РѕР±СЂР°Р±РѕС‚РєСѓ
 InterfaceProfilesList GetInterfaceProfiles(const pcap_if_t* interface)
 {
 	InterfaceProfilesList data;
@@ -134,9 +134,9 @@ EthernetProfileList network::ethernet::GetEthernetProfileList(void)
 		std::string name(interface->name);
 		std::string description(interface->description ? interface->description : "");
 
-		//получаем физический адрес
+		//РїРѕР»СѓС‡Р°РµРј С„РёР·РёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ
 		const auto macAddress = GetMacAddress(name);
-		//получаем индекс сетевого интерфейса
+		//РїРѕР»СѓС‡Р°РµРј РёРЅРґРµРєСЃ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 		uint64_t index = 0;
 		bool isVpn = false;
 		if (!GetIndexInterface(name, index, isVpn)){

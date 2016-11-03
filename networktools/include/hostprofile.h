@@ -2,39 +2,39 @@
 
 namespace networktools
 {
-/// @brief Описание узла
+/// @brief РћРїРёСЃР°РЅРёРµ СѓР·Р»Р°
 ///
 class HostProfile : public networktools::manager::IHostProfile
 {
 public:
-	/// @brief Конструктор
+	/// @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	explicit HostProfile(const network::HostProfilePtr& hostprofile);
-	/// @brief Деструктор
+	/// @brief Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	~HostProfile();
 protected:
-	/// @brief Возвращает COM объект
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ COM РѕР±СЉРµРєС‚
 	///
 	HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, _COM_Outptr_ void __RPC_FAR *__RPC_FAR *ppvObject);
-	/// @breif Осуществляет увеличение ссылки COM объекта
+	/// @breif РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СѓРІРµР»РёС‡РµРЅРёРµ СЃСЃС‹Р»РєРё COM РѕР±СЉРµРєС‚Р°
 	///
 	ULONG STDMETHODCALLTYPE AddRef(void);
-	/// @breif Осуществляет уменьшение ссылки COM объекта
+	/// @breif РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СѓРјРµРЅСЊС€РµРЅРёРµ СЃСЃС‹Р»РєРё COM РѕР±СЉРµРєС‚Р°
 	///
 	ULONG STDMETHODCALLTYPE Release(void);
 public:
-	/// @brief Возвращает время ответа
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РІСЂРµРјСЏ РѕС‚РІРµС‚Р°
 	///
 	uint64_t STDMETHODCALLTYPE GetTime(void) const throw();
-	/// @brief Возвращает Ip адрес
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ Ip Р°РґСЂРµСЃ
 	///
 	BSTR STDMETHODCALLTYPE GetIp(void) const throw();
 private:
-	/// описание сетевого интерфейса
+	/// РѕРїРёСЃР°РЅРёРµ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	network::HostProfilePtr hostProfile_;
 private:
-	/// Содержит количество ссылок на объект
+	/// РЎРѕРґРµСЂР¶РёС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃСЃС‹Р»РѕРє РЅР° РѕР±СЉРµРєС‚
 	ULONG ref_;
 };
 }

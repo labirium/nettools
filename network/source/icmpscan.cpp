@@ -12,11 +12,11 @@ using namespace network::tools;
 
 namespace
 {
-/// @brief Осуществляет отправку arp запросов
+/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РѕС‚РїСЂР°РІРєСѓ arp Р·Р°РїСЂРѕСЃРѕРІ
 ///
 bool SendPacketProbe(const SOCKET socket, const struct in_addr& dst)
 {
-	const auto icmpPacket = network::icmp::СreateIcmpPacket(0);
+	const auto icmpPacket = network::icmp::РЎreateIcmpPacket(0);
 
 	struct sockaddr_in dest;
 	memset(&dest, 0, sizeof(dest));

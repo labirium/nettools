@@ -2,34 +2,34 @@
 
 namespace network
 {
-/// @brief Сетевые настройки интерфейса
+/// @brief РЎРµС‚РµРІС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё РёРЅС‚РµСЂС„РµР№СЃР°
 class InterfaceProfiles
 {
 public:
-	/// @brief Конструктор
+	/// @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	///
-	/// @param[in] ip адрес
-	/// @param[in] mask маска сети
+	/// @param[in] ip Р°РґСЂРµСЃ
+	/// @param[in] mask РјР°СЃРєР° СЃРµС‚Рё
 	InterfaceProfiles(const struct in_addr& ip, const struct in_addr& mask);
-	/// @brief Конструктор
+	/// @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	///
-	/// @param[in] ip адрес
-	/// @param[in] mask маска сети
+	/// @param[in] ip Р°РґСЂРµСЃ
+	/// @param[in] mask РјР°СЃРєР° СЃРµС‚Рё
 	InterfaceProfiles(const unsigned long ip, const unsigned long mask);
-	/// @brief Деструктор
+	/// @brief Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	~InterfaceProfiles();
 public:
-	/// @brief Возвращает Ip адрес
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ Ip Р°РґСЂРµСЃ
 	///
 	const struct in_addr& GetIp(void) const;
-	/// @brief Возвращает Маска
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РњР°СЃРєР°
 	///
 	const struct in_addr& GetMask(void) const;
 private:
-	/// ip адрес
+	/// ip Р°РґСЂРµСЃ
 	struct in_addr ip_;
-	/// маска
+	/// РјР°СЃРєР°
 	struct in_addr mask_;
 };
 }

@@ -3,10 +3,10 @@
 
 namespace network
 {
-/// @brief Осуществляет выборку из arp таблицы
+/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РІС‹Р±РѕСЂРєСѓ РёР· arp С‚Р°Р±Р»РёС†С‹
 ///
 EthernetHostProfileList ArpHostTableProbe(void);
-/// @brief Осуществляет arp сканирование на всех интерфейсах
+/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ arp СЃРєР°РЅРёСЂРѕРІР°РЅРёРµ РЅР° РІСЃРµС… РёРЅС‚РµСЂС„РµР№СЃР°С…
 ///
 EthernetHostProfileList ArpScanProbe(void);
 }

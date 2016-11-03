@@ -26,23 +26,23 @@ typedef enum tagProtectedLevel
 namespace protocol
 {
 class RpcClient;
-/// указатель на описание клиенского подключения
+/// СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РѕРїРёСЃР°РЅРёРµ РєР»РёРµРЅСЃРєРѕРіРѕ РїРѕРґРєР»СЋС‡РµРЅРёСЏ
 typedef std::shared_ptr<RpcClient> RpcClientPtr;
 
-/// Описание структуры данных
+/// РћРїРёСЃР°РЅРёРµ СЃС‚СЂСѓРєС‚СѓСЂС‹ РґР°РЅРЅС‹С…
 typedef std::map<std::wstring, std::wstring> MapData;
 }
 
 class RemoveHost;
-/// Указатель на сетевой узел
+/// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃРµС‚РµРІРѕР№ СѓР·РµР»
 typedef std::shared_ptr<RemoveHost> RemoveHostPtr;
 
 class RemoveHostProfile;
-/// указатель на свойства удаленного узла
+/// СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃРІРѕР№СЃС‚РІР° СѓРґР°Р»РµРЅРЅРѕРіРѕ СѓР·Р»Р°
 typedef std::shared_ptr<RemoveHostProfile> RemoveHostProfilePtr;
 
 class RemoveHostProfileManager;
-/// Указатель на свойства удаленных узлов
+/// РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃРІРѕР№СЃС‚РІР° СѓРґР°Р»РµРЅРЅС‹С… СѓР·Р»РѕРІ
 typedef std::shared_ptr<RemoveHostProfileManager> RemoveHostProfileManagerPtr;
 typedef std::map<RemoveHost, RemoveHostProfilePtr> RemoveHostList;
 
@@ -50,50 +50,50 @@ typedef std::map<RemoveHost, RemoveHostProfilePtr> RemoveHostList;
 typedef std::function<void(const std::string& ethernetId, const std::string& host, const network::protocol::MapData& data)> RpcCallback;
 typedef std::shared_ptr<RpcCallback> RpcCallbackPtr;
 
-/// @brief Описание типа сканирования
+/// @brief РћРїРёСЃР°РЅРёРµ С‚РёРїР° СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
 typedef int IdScanTask;
 
 class EthernetProfile;
-/// @brief Указатель на свойства ethernet
+/// @brief РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃРІРѕР№СЃС‚РІР° ethernet
 typedef std::shared_ptr<EthernetProfile> EthernetProfilePtr;
-/// @brief Список на свойства ethernet
+/// @brief РЎРїРёСЃРѕРє РЅР° СЃРІРѕР№СЃС‚РІР° ethernet
 typedef std::vector<EthernetProfilePtr> EthernetProfileList;
 
 class InterfaceProfiles;
-/// @brief Указатель cетевые настройки интерфейса
+/// @brief РЈРєР°Р·Р°С‚РµР»СЊ cРµС‚РµРІС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё РёРЅС‚РµСЂС„РµР№СЃР°
 typedef std::shared_ptr<InterfaceProfiles> InterfaceProfilesPtr;
-/// @brief Список на cетевые настройки интерфейса
+/// @brief РЎРїРёСЃРѕРє РЅР° cРµС‚РµРІС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё РёРЅС‚РµСЂС„РµР№СЃР°
 typedef std::vector<InterfaceProfilesPtr> InterfaceProfilesList;
 
-/// @brief BLOB Mac адрес
+/// @brief BLOB Mac Р°РґСЂРµСЃ
 typedef std::vector<char> MacAddress;
 
 class HostProfile;
-/// @brief Указатель на описание хоста
+/// @brief РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РѕРїРёСЃР°РЅРёРµ С…РѕСЃС‚Р°
 typedef std::shared_ptr<HostProfile> HostProfilePtr;
-/// @brief Список узлов
+/// @brief РЎРїРёСЃРѕРє СѓР·Р»РѕРІ
 typedef std::vector<HostProfilePtr> HostProfileList;
 
-/// @brief Соотвествие сетевого интерфейса с найденными узлами
+/// @brief РЎРѕРѕС‚РІРµСЃС‚РІРёРµ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР° СЃ РЅР°Р№РґРµРЅРЅС‹РјРё СѓР·Р»Р°РјРё
 typedef std::map<EthernetProfilePtr, HostProfileList> EthernetHostProfileList;
 
-/// @brief Указатель на класс осуществляющий обработку задачи
+/// @brief РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєР»Р°СЃСЃ РѕСЃСѓС‰РµСЃС‚РІР»СЏСЋС‰РёР№ РѕР±СЂР°Р±РѕС‚РєСѓ Р·Р°РґР°С‡Рё
 class Task;
 typedef std::shared_ptr<Task> TaskPtr;
 
-/// @brief Указатель на класс содержащий данные результата сканирования
+/// @brief РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєР»Р°СЃСЃ СЃРѕРґРµСЂР¶Р°С‰РёР№ РґР°РЅРЅС‹Рµ СЂРµР·СѓР»СЊС‚Р°С‚Р° СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
 class HostProfileManager;
 typedef std::shared_ptr<HostProfileManager> HostProfileManagerPtr;
 
-/// @brief Указатель на класс осуществляющий поиск устройств в сети
+/// @brief РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РєР»Р°СЃСЃ РѕСЃСѓС‰РµСЃС‚РІР»СЏСЋС‰РёР№ РїРѕРёСЃРє СѓСЃС‚СЂРѕР№СЃС‚РІ РІ СЃРµС‚Рё
 class Manager;
 typedef std::shared_ptr<Manager> ManagerPtr;
-/// @brief Список задач
+/// @brief РЎРїРёСЃРѕРє Р·Р°РґР°С‡
 typedef std::set<IdScanTask> IdScanTaskList;
 
 namespace icmp
 {
-/// @brief Blob пакет
+/// @brief Blob РїР°РєРµС‚
 typedef std::vector<char> BlobPacket;
 }
 

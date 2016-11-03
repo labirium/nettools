@@ -94,8 +94,8 @@ struct icmp {
 #define	icmp_data	icmp_dun.id_data
 };
 
-/// @brief Ôîğìèğóåò icmp
-BlobPacket ÑreateIcmpPacket( const size_t sizeMessageIcmp );
+/// @brief Ğ¤Ğ¾Ñ€Ğ¼Ğ¸Ñ€ÑƒĞµÑ‚ icmp
+BlobPacket Ğ¡reateIcmpPacket( const size_t sizeMessageIcmp );
 
 }
 }

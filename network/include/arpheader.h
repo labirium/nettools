@@ -65,10 +65,10 @@ struct arp_hdr {
 };
 
 
-/// @brief Формирует arp заголовок
+/// @brief Р¤РѕСЂРјРёСЂСѓРµС‚ arp Р·Р°РіРѕР»РѕРІРѕРє
 ///
 void arp_pack_hdr_ethip_f(uint8_t* hdr, uint16_t op, const char*sha, const struct in_addr& spa, const char*tha, const struct in_addr& tpa);
-/// @brief Формирует arp заголовок
+/// @brief Р¤РѕСЂРјРёСЂСѓРµС‚ arp Р·Р°РіРѕР»РѕРІРѕРє
 ///
 void eth_pack_hdr_f(uint8_t* hdr, const char* dst, const char* src, uint16_t type);
 }

@@ -2,40 +2,40 @@
 
 namespace network
 {
-/// @brief Описание узла
+/// @brief РћРїРёСЃР°РЅРёРµ СѓР·Р»Р°
 ///
 class HostProfile
 {
 public:
-	/// @brief конструктор
+	/// @brief РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	/// 
-	/// @param[in] ip IP адрес
-	/// @param[in] mac физический адрес
-	/// @param[in] time время получения ответа
+	/// @param[in] ip IP Р°РґСЂРµСЃ
+	/// @param[in] mac С„РёР·РёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ
+	/// @param[in] time РІСЂРµРјСЏ РїРѕР»СѓС‡РµРЅРёСЏ РѕС‚РІРµС‚Р°
 	HostProfile(const struct in_addr& ip, const MacAddress& mac, const time_t time);
-	/// @brief Деструктор
+	/// @brief Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	~HostProfile();
 public:
-	/// @brief Осуществляет модификацию свойств удаленного узла
+	/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РјРѕРґРёС„РёРєР°С†РёСЋ СЃРІРѕР№СЃС‚РІ СѓРґР°Р»РµРЅРЅРѕРіРѕ СѓР·Р»Р°
 	///
 	void ChangeRemoveHostProfile(const RemoveHostProfilePtr& removeHostProfile);
 public:
-	/// @brief Возвращает физический адресс
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ С„РёР·РёС‡РµСЃРєРёР№ Р°РґСЂРµСЃСЃ
 	///
 	const MacAddress& GetMacAddress(void) const;
-	/// @brief Возвращает Ip адрес
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ Ip Р°РґСЂРµСЃ
 	///
 	const struct in_addr& GetIp(void) const;
-	/// @brief Возвращает время ответа
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РІСЂРµРјСЏ РѕС‚РІРµС‚Р°
 	///
 	time_t GetTime(void) const;
 private:
-	/// ip адрес
+	/// ip Р°РґСЂРµСЃ
 	struct in_addr ip_;
-	/// физический адрес
+	/// С„РёР·РёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ
 	MacAddress mac_;
-	/// Время формирования запроса
+	/// Р’СЂРµРјСЏ С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ Р·Р°РїСЂРѕСЃР°
 	time_t time_;
 };
 }

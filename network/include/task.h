@@ -6,46 +6,46 @@
 namespace network
 {
 
-/// @brief Класс осуществляет постановку задачи
+/// @brief РљР»Р°СЃСЃ РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РїРѕСЃС‚Р°РЅРѕРІРєСѓ Р·Р°РґР°С‡Рё
 ///
 class Task : public std::enable_shared_from_this<Task>
 {
 public:
-	/// @brief Конструктор
+	/// @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	Task();
-	/// @brief Деструктор
+	/// @brief Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	~Task();
 public:
-	/// @brief Осуществляет постановку задачи в отдельный поток
+	/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РїРѕСЃС‚Р°РЅРѕРІРєСѓ Р·Р°РґР°С‡Рё РІ РѕС‚РґРµР»СЊРЅС‹Р№ РїРѕС‚РѕРє
 	///
-	/// @param[in] typeScan typeScan тип сканирования
-	/// @param[in] hostProfileManager описание мереджера для обработки результата сканирования сети
+	/// @param[in] typeScan typeScan С‚РёРї СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
+	/// @param[in] hostProfileManager РѕРїРёСЃР°РЅРёРµ РјРµСЂРµРґР¶РµСЂР° РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё СЂРµР·СѓР»СЊС‚Р°С‚Р° СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ СЃРµС‚Рё
 	IdScanTask AddThreadTask(const network::enums::TypeScan typeScan, const HostProfileManagerPtr& hostProfileManager);
-	/// @brief Осуществляет постановку задачи
+	/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РїРѕСЃС‚Р°РЅРѕРІРєСѓ Р·Р°РґР°С‡Рё
 	///
-	/// @param[in] typeScan тип сканирования
-	/// @param[in] hostProfileManager описание мереджера для обработки результата сканирования сети
+	/// @param[in] typeScan С‚РёРї СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
+	/// @param[in] hostProfileManager РѕРїРёСЃР°РЅРёРµ РјРµСЂРµРґР¶РµСЂР° РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё СЂРµР·СѓР»СЊС‚Р°С‚Р° СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ СЃРµС‚Рё
 	IdScanTask AddTask(const network::enums::TypeScan typeScan, const HostProfileManagerPtr& hostProfileManager);
-	/// @brief Получаем статус сканирования
+	/// @brief РџРѕР»СѓС‡Р°РµРј СЃС‚Р°С‚СѓСЃ СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
 	///
-	/// @param[in] idScan номер задачи
-	/// @return Возвращает true если задача заврешена
+	/// @param[in] idScan РЅРѕРјРµСЂ Р·Р°РґР°С‡Рё
+	/// @return Р’РѕР·РІСЂР°С‰Р°РµС‚ true РµСЃР»Рё Р·Р°РґР°С‡Р° Р·Р°РІСЂРµС€РµРЅР°
 	bool IsTask(const IdScanTask idScan) const;
 private:
-	/// @brief Осуществляет изменение списка узлов на основе последнего сканирования
+	/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РёР·РјРµРЅРµРЅРёРµ СЃРїРёСЃРєР° СѓР·Р»РѕРІ РЅР° РѕСЃРЅРѕРІРµ РїРѕСЃР»РµРґРЅРµРіРѕ СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
 	///
-	/// @param[in] idTask номер задачи
+	/// @param[in] idTask РЅРѕРјРµСЂ Р·Р°РґР°С‡Рё
 	void BeginChangeHosts(const IdScanTask idTask);
-	/// @brief Осуществляет изменение списка узлов на основе последнего сканирования
+	/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РёР·РјРµРЅРµРЅРёРµ СЃРїРёСЃРєР° СѓР·Р»РѕРІ РЅР° РѕСЃРЅРѕРІРµ РїРѕСЃР»РµРґРЅРµРіРѕ СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
 	///
-	/// @param[in] ethernetHostProfile список найденых сетевых устройств 
-	/// @param[in] idTask номер задачи
-	/// @param[in] hostProfileManager описание мереджера для обработки результата сканирования сети
+	/// @param[in] ethernetHostProfile СЃРїРёСЃРѕРє РЅР°Р№РґРµРЅС‹С… СЃРµС‚РµРІС‹С… СѓСЃС‚СЂРѕР№СЃС‚РІ 
+	/// @param[in] idTask РЅРѕРјРµСЂ Р·Р°РґР°С‡Рё
+	/// @param[in] hostProfileManager РѕРїРёСЃР°РЅРёРµ РјРµСЂРµРґР¶РµСЂР° РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё СЂРµР·СѓР»СЊС‚Р°С‚Р° СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ СЃРµС‚Рё
 	void EndChangeHosts(const EthernetHostProfileList& ethernetHostProfile, const IdScanTask idTask, const HostProfileManagerPtr& hostProfileManager);
 private:
-	/// Список активных задач
+	/// РЎРїРёСЃРѕРє Р°РєС‚РёРІРЅС‹С… Р·Р°РґР°С‡
 	IdScanTaskList idScanTaskList_;
 private:
 	mutable std::mutex guard_;

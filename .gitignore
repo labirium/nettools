@@ -1,1 +1,6 @@
+ipch/
+networktools/obj
 contrib/
+*.opensdf
+*.sdf
+*.cache

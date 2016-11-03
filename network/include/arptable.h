@@ -2,10 +2,10 @@
 
 namespace network
 {
-/// @brief Возвращает список хостов на основе встроенной таблицы машрутизации
+/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє С…РѕСЃС‚РѕРІ РЅР° РѕСЃРЅРѕРІРµ РІСЃС‚СЂРѕРµРЅРЅРѕР№ С‚Р°Р±Р»РёС†С‹ РјР°С€СЂСѓС‚РёР·Р°С†РёРё
 ///
-/// @param[in] ethernetProfile Описание сетевого интерфейса
-/// @param[out] hosts Список полученных хостов
+/// @param[in] ethernetProfile РћРїРёСЃР°РЅРёРµ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
+/// @param[out] hosts РЎРїРёСЃРѕРє РїРѕР»СѓС‡РµРЅРЅС‹С… С…РѕСЃС‚РѕРІ
 bool GetArpHostTalbeForInterface(const EthernetProfilePtr& ethernetProfile, HostProfileList& hosts );
 }
 

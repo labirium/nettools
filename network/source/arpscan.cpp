@@ -12,13 +12,13 @@ using namespace network::arp;
 using namespace network::tools;
 using namespace network::ethernet;
 
-/// @brief Осуществляет отправку arp запросов
+/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РѕС‚РїСЂР°РІРєСѓ arp Р·Р°РїСЂРѕСЃРѕРІ
 ///
-/// @param[in] pcap хендел на сетевой интерфейс
-/// @param[in] source ip адрес отправителя
-/// @param[in] srcMac физический адрес отправителя
-/// @param[in] dspIp ip адрес получателя
-/// @return Возвращает true при успешном отправке пакета
+/// @param[in] pcap С…РµРЅРґРµР» РЅР° СЃРµС‚РµРІРѕР№ РёРЅС‚РµСЂС„РµР№СЃ
+/// @param[in] source ip Р°РґСЂРµСЃ РѕС‚РїСЂР°РІРёС‚РµР»СЏ
+/// @param[in] srcMac С„РёР·РёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ РѕС‚РїСЂР°РІРёС‚РµР»СЏ
+/// @param[in] dspIp ip Р°РґСЂРµСЃ РїРѕР»СѓС‡Р°С‚РµР»СЏ
+/// @return Р’РѕР·РІСЂР°С‰Р°РµС‚ true РїСЂРё СѓСЃРїРµС€РЅРѕРј РѕС‚РїСЂР°РІРєРµ РїР°РєРµС‚Р°
 bool SendArpScanProbe(pcap_t * pcap, const struct in_addr& source, const MacAddress& srcMac, const struct in_addr& dspIp)
 {
 	uint8_t frame[ETH_HDR_LEN + ARP_HDR_LEN + ARP_ETHIP_LEN];
@@ -37,11 +37,11 @@ bool SendArpScanProbe(pcap_t * pcap, const struct in_addr& source, const MacAddr
 	return true;
 }
 
-/// @brief Осуществляет отправку arp запросов
+/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РѕС‚РїСЂР°РІРєСѓ arp Р·Р°РїСЂРѕСЃРѕРІ
 ///
-/// @param[in] pcap хендел на сетевой интерфейс
-/// @param[in] ethernetProfile описание сетевого интерфейса
-/// @return Возвращает количество успешных отправленных пакетов
+/// @param[in] pcap С…РµРЅРґРµР» РЅР° СЃРµС‚РµРІРѕР№ РёРЅС‚РµСЂС„РµР№СЃ
+/// @param[in] ethernetProfile РѕРїРёСЃР°РЅРёРµ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
+/// @return Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СѓСЃРїРµС€РЅС‹С… РѕС‚РїСЂР°РІР»РµРЅРЅС‹С… РїР°РєРµС‚РѕРІ
 int ScanArpInterface(pcap_t * pcap, const EthernetProfileList::value_type& ethernetProfile)
 {
 	int count = 0;
@@ -70,10 +70,10 @@ int ScanArpInterface(pcap_t * pcap, const EthernetProfileList::value_type& ether
 	return count;
 }
 
-/// @brief Осуществляет считывание arp запросов с сетевого интерфейса
+/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СЃС‡РёС‚С‹РІР°РЅРёРµ arp Р·Р°РїСЂРѕСЃРѕРІ СЃ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 ///
-/// @param[in] pcap хендел на сетевой интерфейс
-/// @return Возвращает результат сканирования
+/// @param[in] pcap С…РµРЅРґРµР» РЅР° СЃРµС‚РµРІРѕР№ РёРЅС‚РµСЂС„РµР№СЃ
+/// @return Р’РѕР·РІСЂР°С‰Р°РµС‚ СЂРµР·СѓР»СЊС‚Р°С‚ СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
 HostProfileList ReadArpPacket(pcap_t * pcap)
 {
 
@@ -103,11 +103,11 @@ HostProfileList ReadArpPacket(pcap_t * pcap)
 	return std::move(hostProfiles);
 }
 
-/// @brief Осуществляет сканирование на заданном сетевом интерфейсе
+/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СЃРєР°РЅРёСЂРѕРІР°РЅРёРµ РЅР° Р·Р°РґР°РЅРЅРѕРј СЃРµС‚РµРІРѕРј РёРЅС‚РµСЂС„РµР№СЃРµ
 ///
-/// @param[in] ethernetProfile свойства сетевого интерфейса
-/// @param[out] результат сканирования
-/// @return Возвращаеь результат при успешном сканировании
+/// @param[in] ethernetProfile СЃРІРѕР№СЃС‚РІР° СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
+/// @param[out] СЂРµР·СѓР»СЊС‚Р°С‚ СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
+/// @return Р’РѕР·РІСЂР°С‰Р°РµСЊ СЂРµР·СѓР»СЊС‚Р°С‚ РїСЂРё СѓСЃРїРµС€РЅРѕРј СЃРєР°РЅРёСЂРѕРІР°РЅРёРё
 bool sendArpScanProbe(const network::EthernetProfileList::value_type& ethernetProfile, HostProfileList& hostProfiles)
 {
 	if (!ethernetProfile){

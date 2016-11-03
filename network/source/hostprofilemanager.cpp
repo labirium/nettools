@@ -4,7 +4,7 @@ using namespace network;
 
 void HostProfileManager::ChangeEthernetHostProfile(const IdScanTask task, const EthernetHostProfileList& hostProfile)
 {
-	//выставляем локер
+	//РІС‹СЃС‚Р°РІР»СЏРµРј Р»РѕРєРµСЂ
 	std::lock_guard<std::mutex> lock(guard_);
 	ethernetHostsProfile_ = hostProfile;
 }

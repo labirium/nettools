@@ -8,7 +8,7 @@ using namespace network;
 
 namespace
 {
-/// @brief Возвращает уникальное значеие задачи
+/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СѓРЅРёРєР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРёРµ Р·Р°РґР°С‡Рё
 ///
 IdScanTask CreateIdScanTask(void)
 {
@@ -42,7 +42,7 @@ IdScanTask Task::AddTask(const network::enums::TypeScan typeScan, const HostProf
 		break;
 	}
 
-	//возвращаем результат
+	//РІРѕР·РІСЂР°С‰Р°РµРј СЂРµР·СѓР»СЊС‚Р°С‚
 	hostProfileManager ? hostProfileManager->ChangeEthernetHostProfile(NO_TASK, hostProfile) : (void)hostProfileManager;
 
 	network::logger::dump(hostProfile);
@@ -52,7 +52,7 @@ IdScanTask Task::AddTask(const network::enums::TypeScan typeScan, const HostProf
 
 IdScanTask Task::AddThreadTask(const network::enums::TypeScan typeScan, const HostProfileManagerPtr& hostProfileManager)
 {
-	//Формируем задачу
+	//Р¤РѕСЂРјРёСЂСѓРµРј Р·Р°РґР°С‡Сѓ
 	const auto idTask = CreateIdScanTask();
 	BeginChangeHosts(idTask);
 
@@ -82,11 +82,11 @@ IdScanTask Task::AddThreadTask(const network::enums::TypeScan typeScan, const Ho
 			break;
 		}
 
-		//сохраняем список
+		//СЃРѕС…СЂР°РЅСЏРµРј СЃРїРёСЃРѕРє
 		self ? self->EndChangeHosts(hostTableProbe, idTask, hostProfileManager) : (void)self;
 	};
 
-	//Формируем поток
+	//Р¤РѕСЂРјРёСЂСѓРµРј РїРѕС‚РѕРє
 	std::thread thread(func, typeScan, idTask);
 	thread.detach();
 
@@ -100,10 +100,10 @@ void Task::BeginChangeHosts(const IdScanTask idTask)
 		return;
 	}
 
-	//выставляем локер
+	//РІС‹СЃС‚Р°РІР»СЏРµРј Р»РѕРєРµСЂ
 	std::lock_guard<std::mutex> lock(guard_);
 
-	//измененям статус
+	//РёР·РјРµРЅРµРЅСЏРј СЃС‚Р°С‚СѓСЃ
 	idScanTaskList_.insert(idTask);
 }
 
@@ -113,13 +113,13 @@ void Task::EndChangeHosts(const EthernetHostProfileList& hostProfile, const IdSc
 		return;
 	}
 
-	//выставляем локер
+	//РІС‹СЃС‚Р°РІР»СЏРµРј Р»РѕРєРµСЂ
 	std::lock_guard<std::mutex> lock(guard_);
 
-	//измененям статус
+	//РёР·РјРµРЅРµРЅСЏРј СЃС‚Р°С‚СѓСЃ
 	idScanTaskList_.erase(idTask);
 
-	//возвращаем результат
+	//РІРѕР·РІСЂР°С‰Р°РµРј СЂРµР·СѓР»СЊС‚Р°С‚
 	hostProfileManager ? hostProfileManager->ChangeEthernetHostProfile(idTask, hostProfile) : (void)hostProfileManager;
 
 	network::logger::dump(hostProfile);
@@ -135,7 +135,7 @@ bool Task::IsTask(const IdScanTask idScan) const
 		return true;
 	}
 
-	//выставляем локер
+	//РІС‹СЃС‚Р°РІР»СЏРµРј Р»РѕРєРµСЂ
 	std::lock_guard<std::mutex> lock(guard_);
 
 	return idScanTaskList_.find(idScan) == idScanTaskList_.end() ? true : false;

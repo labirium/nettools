@@ -7,7 +7,7 @@ using namespace network::icmp;
 
 namespace
 {
-/// @brief подсчет контрольной сумму для ICMP пакета
+/// @brief РїРѕРґСЃС‡РµС‚ РєРѕРЅС‚СЂРѕР»СЊРЅРѕР№ СЃСѓРјРјСѓ РґР»СЏ ICMP РїР°РєРµС‚Р°
 ///
 uint16_t in_cksum(void *addr, int len)
 {
@@ -39,22 +39,22 @@ uint16_t in_cksum(void *addr, int len)
 }
 }
 
-BlobPacket network::icmp::СreateIcmpPacket( const size_t sizeMessageIcmp )
+BlobPacket network::icmp::РЎreateIcmpPacket( const size_t sizeMessageIcmp )
 {
 	srand(static_cast<unsigned int>(time(NULL)));
 
 	struct icmp icmpHeader;
 	memset(&icmpHeader, 0x00, sizeof(icmpHeader));
-	// ICMP заголовок
+	// ICMP Р·Р°РіРѕР»РѕРІРѕРє
 	icmpHeader.icmp_type = ICMP_ECHO;
 
-	// индентификатор пакета
+	// РёРЅРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїР°РєРµС‚Р°
 	uint16_t number = rand() % 65535 + 0;
 	icmpHeader.icmp_hun.ih_idseq.icd_id = htons(++number);
-	// контрольная сумма icmp
+	// РєРѕРЅС‚СЂРѕР»СЊРЅР°СЏ СЃСѓРјРјР° icmp
 	icmpHeader.icmp_cksum = in_cksum(&icmpHeader, sizeof(icmp));
 
-	// помещение пакета в вектор
+	// РїРѕРјРµС‰РµРЅРёРµ РїР°РєРµС‚Р° РІ РІРµРєС‚РѕСЂ
 	BlobPacket dataBuffer(sizeof(struct icmp) + sizeMessageIcmp, 0);
 	memcpy(&dataBuffer[0], &icmpHeader, sizeof(struct icmp));
 

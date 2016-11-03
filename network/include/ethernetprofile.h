@@ -2,54 +2,54 @@
 
 namespace network
 {
-/// @brief Свойства интерфейса
+/// @brief РЎРІРѕР№СЃС‚РІР° РёРЅС‚РµСЂС„РµР№СЃР°
 ///
 class EthernetProfile
 {
 public:
-	/// @brief Конструктор
+	/// @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	///
-	/// @param[in] index Индекс сетевого интерфейса
-	/// @param[in] name Имя интерфейса
-	/// @param[in] description Описание интерфейса
-	/// @param[in] macAddress физический адрес
-	/// @param[in] isVpn true - определяет сетевой интерфейс как VPN
-	/// @param[in] interfaceProfiles Описание сетевого интерфейса
+	/// @param[in] index РРЅРґРµРєСЃ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
+	/// @param[in] name РРјСЏ РёРЅС‚РµСЂС„РµР№СЃР°
+	/// @param[in] description РћРїРёСЃР°РЅРёРµ РёРЅС‚РµСЂС„РµР№СЃР°
+	/// @param[in] macAddress С„РёР·РёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ
+	/// @param[in] isVpn true - РѕРїСЂРµРґРµР»СЏРµС‚ СЃРµС‚РµРІРѕР№ РёРЅС‚РµСЂС„РµР№СЃ РєР°Рє VPN
+	/// @param[in] interfaceProfiles РћРїРёСЃР°РЅРёРµ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	EthernetProfile(const uint64_t index, const std::string& name, const std::string& description, const MacAddress& macAddress, const bool isVpn, const InterfaceProfilesList& interfaceProfiles);
-	/// @brief Деструтор
+	/// @brief Р”РµСЃС‚СЂСѓС‚РѕСЂ
 	///
 	~EthernetProfile();
 public:
-	/// @brief Возвращает индекс сетевого интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРЅРґРµРєСЃ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	///
 	uint64_t GetIndex(void) const;
-	/// @brief Возвращает имя интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ РёРЅС‚РµСЂС„РµР№СЃР°
 	///
 	const std::string& GetName(void) const;
-	/// @brief Возвращает описание интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РѕРїРёСЃР°РЅРёРµ РёРЅС‚РµСЂС„РµР№СЃР°
 	///
 	const std::string& GetDescription(void) const;
-	/// @brief Возвращает физический адрес
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ С„РёР·РёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ
 	///
 	const MacAddress& GetMacAddress(void) const;
-	/// @brief Возвращает true если определен признак VPN
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ true РµСЃР»Рё РѕРїСЂРµРґРµР»РµРЅ РїСЂРёР·РЅР°Рє VPN
 	///
 	bool IsVpn(void) const;
-	/// @brief Возвращает список сетевых интерфейсов
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЃРµС‚РµРІС‹С… РёРЅС‚РµСЂС„РµР№СЃРѕРІ
 	///
 	const InterfaceProfilesList& GetInterfaceProfilesList(void) const;
 private:
-	/// Список сетевых интерфейсов
+	/// РЎРїРёСЃРѕРє СЃРµС‚РµРІС‹С… РёРЅС‚РµСЂС„РµР№СЃРѕРІ
 	InterfaceProfilesList interfaceProfiles_;
-	/// Физический адрес
+	/// Р¤РёР·РёС‡РµСЃРєРёР№ Р°РґСЂРµСЃ
 	MacAddress macAddress_;
-	/// Имя интерфейса
+	/// РРјСЏ РёРЅС‚РµСЂС„РµР№СЃР°
 	std::string name_;
-	/// Описание интерфейса
+	/// РћРїРёСЃР°РЅРёРµ РёРЅС‚РµСЂС„РµР№СЃР°
 	std::string description_;
-	///  Индекс сетевого интерфейса
+	///  РРЅРґРµРєСЃ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	uint64_t index_;
-	/// признак VPN
+	/// РїСЂРёР·РЅР°Рє VPN
 	bool isVpn_;
 };
 }

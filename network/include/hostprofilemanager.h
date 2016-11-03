@@ -2,29 +2,29 @@
 
 namespace network
 {
-/// @brief Содержит и обрабатывает результат сканирование сети
+/// @brief РЎРѕРґРµСЂР¶РёС‚ Рё РѕР±СЂР°Р±Р°С‚С‹РІР°РµС‚ СЂРµР·СѓР»СЊС‚Р°С‚ СЃРєР°РЅРёСЂРѕРІР°РЅРёРµ СЃРµС‚Рё
 ///
 class HostProfileManager
 {
 public:
-	/// @brief Конструктор
+	/// @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	HostProfileManager();
-	/// @brief Деструктор
+	/// @brief Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	~HostProfileManager();
 public:
-	/// @brief Возвращает список сетевых узлов для заданного интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЃРµС‚РµРІС‹С… СѓР·Р»РѕРІ РґР»СЏ Р·Р°РґР°РЅРЅРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	/// 
-	/// @param[in] index индекс сетевого интерфейса
+	/// @param[in] index РёРЅРґРµРєСЃ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	HostProfileList GetHostProfileList(const uint64_t index) const;
-	/// @brief Осуществляет обработку события изменения списка устройств
+	/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РѕР±СЂР°Р±РѕС‚РєСѓ СЃРѕР±С‹С‚РёСЏ РёР·РјРµРЅРµРЅРёСЏ СЃРїРёСЃРєР° СѓСЃС‚СЂРѕР№СЃС‚РІ
 	///
-	/// @param[in] task номер таска
-	/// @param[in] hostProfile список устройств
+	/// @param[in] task РЅРѕРјРµСЂ С‚Р°СЃРєР°
+	/// @param[in] hostProfile СЃРїРёСЃРѕРє СѓСЃС‚СЂРѕР№СЃС‚РІ
 	void ChangeEthernetHostProfile(const IdScanTask task, const EthernetHostProfileList& hostProfile);
 private:
-	/// содержит результат предварительнльного анализа сети
+	/// СЃРѕРґРµСЂР¶РёС‚ СЂРµР·СѓР»СЊС‚Р°С‚ РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅР»СЊРЅРѕРіРѕ Р°РЅР°Р»РёР·Р° СЃРµС‚Рё
 	EthernetHostProfileList ethernetHostsProfile_;
 private:
 	mutable std::mutex guard_;

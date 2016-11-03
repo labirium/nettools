@@ -5,10 +5,10 @@ namespace network
 {
 namespace icmp
 {
-/// @brief Осуществляет сканирование заданных сетевых интерфейсов
+/// @brief РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СЃРєР°РЅРёСЂРѕРІР°РЅРёРµ Р·Р°РґР°РЅРЅС‹С… СЃРµС‚РµРІС‹С… РёРЅС‚РµСЂС„РµР№СЃРѕРІ
 ///
 EthernetHostProfileList ScanIcmpProbe(const EthernetProfileList& ethernetsProfiles);
-/// @brief Сканирование всех сетевых интерфейсов
+/// @brief РЎРєР°РЅРёСЂРѕРІР°РЅРёРµ РІСЃРµС… СЃРµС‚РµРІС‹С… РёРЅС‚РµСЂС„РµР№СЃРѕРІ
 ///
 EthernetHostProfileList ScanIcmpProbe(void);
 }

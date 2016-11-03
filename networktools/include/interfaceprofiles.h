@@ -2,40 +2,40 @@
 
 namespace networktools
 {
-/// @brief Интерфейс сетевых настроек
+/// @brief РРЅС‚РµСЂС„РµР№СЃ СЃРµС‚РµРІС‹С… РЅР°СЃС‚СЂРѕРµРє
 ///
 class  InterfaceProfiles : public networktools::manager::IInterfaceProfiles
 {
 public:
-	/// @brief Конструктор
+	/// @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	///
-	/// @param[in] interfaceProfile описание сетевых настроек
+	/// @param[in] interfaceProfile РѕРїРёСЃР°РЅРёРµ СЃРµС‚РµРІС‹С… РЅР°СЃС‚СЂРѕРµРє
 	explicit InterfaceProfiles(const network::InterfaceProfilesPtr& interfaceProfile);
-	/// @brief Деструктор
+	/// @brief Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	~InterfaceProfiles();
 protected:
-	/// @brief Возвращает COM объект
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ COM РѕР±СЉРµРєС‚
 	///
 	HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, _COM_Outptr_ void __RPC_FAR *__RPC_FAR *ppvObject);
-	/// @breif Осуществляет увеличение ссылки COM объекта
+	/// @breif РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СѓРІРµР»РёС‡РµРЅРёРµ СЃСЃС‹Р»РєРё COM РѕР±СЉРµРєС‚Р°
 	///
 	ULONG STDMETHODCALLTYPE AddRef(void);
-	/// @breif Осуществляет уменьшение ссылки COM объекта
+	/// @breif РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СѓРјРµРЅСЊС€РµРЅРёРµ СЃСЃС‹Р»РєРё COM РѕР±СЉРµРєС‚Р°
 	///
 	ULONG STDMETHODCALLTYPE Release(void);
 public:
-	/// @brief Возвращает Ip адрес
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ Ip Р°РґСЂРµСЃ
 	///
 	BSTR STDMETHODCALLTYPE GetIp(void) const throw();
-	/// @brief Возвращает Маска
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РњР°СЃРєР°
 	///
 	BSTR STDMETHODCALLTYPE GetMask(void) const throw();
 private:
-	/// описание сетевых настроек
+	/// РѕРїРёСЃР°РЅРёРµ СЃРµС‚РµРІС‹С… РЅР°СЃС‚СЂРѕРµРє
 	network::InterfaceProfilesPtr interfaceProfile_;
 private:
-	/// Содержит количество ссылок на объект
+	/// РЎРѕРґРµСЂР¶РёС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃСЃС‹Р»РѕРє РЅР° РѕР±СЉРµРєС‚
 	ULONG ref_;
 };
 }

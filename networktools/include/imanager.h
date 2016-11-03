@@ -8,92 +8,92 @@ namespace manager
 {
 namespace enums
 {
-/// Тип сканирования
+/// РўРёРї СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
 enum
 {
-	/// Arp сканирование
+	/// Arp СЃРєР°РЅРёСЂРѕРІР°РЅРёРµ
 	Arp,
-	/// Анализ arp таблицы хоста
+	/// РђРЅР°Р»РёР· arp С‚Р°Р±Р»РёС†С‹ С…РѕСЃС‚Р°
 	ArpHost,
-	/// Icmp сканирование
+	/// Icmp СЃРєР°РЅРёСЂРѕРІР°РЅРёРµ
 	Icmp
 };
 
-/// Тип сканирования
+/// РўРёРї СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
 typedef int32_t TypeScan;
 ;
 }
 
-/// @brief Описание типа сканирования
+/// @brief РћРїРёСЃР°РЅРёРµ С‚РёРїР° СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
 typedef int32_t IdScanTask;
 
-/// @brief Интерфейс описания узла
+/// @brief РРЅС‚РµСЂС„РµР№СЃ РѕРїРёСЃР°РЅРёСЏ СѓР·Р»Р°
 ///
 struct IHostProfile : public IUnknown
 {
-	/// @brief Возвращает Ip адрес
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ Ip Р°РґСЂРµСЃ
 	///
 	virtual BSTR STDMETHODCALLTYPE GetIp(void) const throw() = 0;
-	/// @brief Возвращает время ответа
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РІСЂРµРјСЏ РѕС‚РІРµС‚Р°
 	///
 	virtual uint64_t STDMETHODCALLTYPE GetTime(void) const throw() = 0;
 };
 
-/// @brief Интерфейс сетевых настроек
+/// @brief РРЅС‚РµСЂС„РµР№СЃ СЃРµС‚РµРІС‹С… РЅР°СЃС‚СЂРѕРµРє
 ///
 struct IInterfaceProfiles : public IUnknown
 {
-	/// @brief Возвращает Ip адрес
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ Ip Р°РґСЂРµСЃ
 	///
 	virtual BSTR STDMETHODCALLTYPE GetIp(void) const throw() = 0;
-	/// @brief Возвращает Маска
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РњР°СЃРєР°
 	///
 	virtual BSTR STDMETHODCALLTYPE GetMask(void) const throw() = 0;
 };
 
-/// @breif Интерфейс сетевого интерфейса
+/// @breif РРЅС‚РµСЂС„РµР№СЃ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 ///
 struct IEthernetProfile : public IUnknown
 {
-	/// @brief Возвращает индекс сетевого интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРЅРґРµРєСЃ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	///
 	virtual uint64_t STDMETHODCALLTYPE GetIndex(void) const throw() = 0;
-	/// @brief Возвращает true если определен признак VPN
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ true РµСЃР»Рё РѕРїСЂРµРґРµР»РµРЅ РїСЂРёР·РЅР°Рє VPN
 	///
 	virtual bool STDMETHODCALLTYPE IsVpn(void) const throw() = 0;
-	/// @brief Возвращает имя интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ РёРЅС‚РµСЂС„РµР№СЃР°
 	///
 	virtual BSTR STDMETHODCALLTYPE GetName(void) const throw() = 0;
-	/// @brief Возвращает описание интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ РѕРїРёСЃР°РЅРёРµ РёРЅС‚РµСЂС„РµР№СЃР°
 	///
 	virtual BSTR STDMETHODCALLTYPE GetDescription(void) const = 0;
 public:
-	/// @brief Возвращает список сетевых настроек
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЃРµС‚РµРІС‹С… РЅР°СЃС‚СЂРѕРµРє
 	///
 	virtual SAFEARRAY FAR* STDMETHODCALLTYPE GetInterfaceProfiles(void) const throw() = 0;
 };
 
-/// @brief Интерфейс для сетевого взаимодействия
+/// @brief РРЅС‚РµСЂС„РµР№СЃ РґР»СЏ СЃРµС‚РµРІРѕРіРѕ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ
 ///
 struct INetworkManager : public IUnknown
 {
-	/// @brief Возвращает список сетевых интерфейсов
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЃРµС‚РµРІС‹С… РёРЅС‚РµСЂС„РµР№СЃРѕРІ
 	///
 	virtual SAFEARRAY FAR* STDMETHODCALLTYPE GetNetworkEthernet(void) const throw() = 0;
-	/// @brief Возвращает список сетевых узлов для заданного интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЃРµС‚РµРІС‹С… СѓР·Р»РѕРІ РґР»СЏ Р·Р°РґР°РЅРЅРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	/// 
-	/// @param[in] profile описание сетевого интерфейса
+	/// @param[in] profile РѕРїРёСЃР°РЅРёРµ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	virtual SAFEARRAY FAR* STDMETHODCALLTYPE GetHostProfileList(const IEthernetProfile& profile) const throw() = 0;
 public:
-	/// @brief Ставит задачу в очередь
+	/// @brief РЎС‚Р°РІРёС‚ Р·Р°РґР°С‡Сѓ РІ РѕС‡РµСЂРµРґСЊ
 	///
-	/// @param[in] typeScan тип сканирования
-	/// @return Возвращает id задачи
+	/// @param[in] typeScan С‚РёРї СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
+	/// @return Р’РѕР·РІСЂР°С‰Р°РµС‚ id Р·Р°РґР°С‡Рё
 	virtual IdScanTask STDMETHODCALLTYPE AddTask(const enums::TypeScan typeScan) throw() = 0;
-	/// @brief Проверка завершение выполнения задачи
+	/// @brief РџСЂРѕРІРµСЂРєР° Р·Р°РІРµСЂС€РµРЅРёРµ РІС‹РїРѕР»РЅРµРЅРёСЏ Р·Р°РґР°С‡Рё
 	/// 
-	/// @param[in] idTask задача 
-	/// @return Возвращает true если задача заврешена
+	/// @param[in] idTask Р·Р°РґР°С‡Р° 
+	/// @return Р’РѕР·РІСЂР°С‰Р°РµС‚ true РµСЃР»Рё Р·Р°РґР°С‡Р° Р·Р°РІСЂРµС€РµРЅР°
 	virtual bool STDMETHODCALLTYPE IsTask(const IdScanTask idTask) const throw() = 0;
 };
 

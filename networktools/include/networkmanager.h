@@ -2,51 +2,51 @@
 
 namespace networktools
 {
-/// @brief Класс содержит реализацию интерфейса сетевого взаимодействия
+/// @brief РљР»Р°СЃСЃ СЃРѕРґРµСЂР¶РёС‚ СЂРµР°Р»РёР·Р°С†РёСЋ РёРЅС‚РµСЂС„РµР№СЃР° СЃРµС‚РµРІРѕРіРѕ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ
 ///
 class NetworkManager : public networktools::manager::INetworkManager
 {
 public:
-	/// @brief Конструктор
+	/// @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	NetworkManager();
-	/// @brief Деструктор
+	/// @brief Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	///
 	~NetworkManager();
 protected:
-	/// @brief Возвращает COM объект
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ COM РѕР±СЉРµРєС‚
 	///
 	HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, _COM_Outptr_ void __RPC_FAR *__RPC_FAR *ppvObject);
-	/// @breif Осуществляет увеличение ссылки COM объекта
+	/// @breif РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СѓРІРµР»РёС‡РµРЅРёРµ СЃСЃС‹Р»РєРё COM РѕР±СЉРµРєС‚Р°
 	///
 	ULONG STDMETHODCALLTYPE AddRef(void);
-	/// @breif Осуществляет уменьшение ссылки COM объекта
+	/// @breif РћСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ СѓРјРµРЅСЊС€РµРЅРёРµ СЃСЃС‹Р»РєРё COM РѕР±СЉРµРєС‚Р°
 	///
 	ULONG STDMETHODCALLTYPE Release(void);
 public:
-	/// @brief Возвращает список сетевых интерфейсов
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЃРµС‚РµРІС‹С… РёРЅС‚РµСЂС„РµР№СЃРѕРІ
 	///
 	SAFEARRAY FAR* STDMETHODCALLTYPE GetNetworkEthernet(void) const throw();
-	/// @brief Возвращает список сетевых узлов для заданного интерфейса
+	/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє СЃРµС‚РµРІС‹С… СѓР·Р»РѕРІ РґР»СЏ Р·Р°РґР°РЅРЅРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	/// 
-	/// @param[in] profile описание сетевого интерфейса
+	/// @param[in] profile РѕРїРёСЃР°РЅРёРµ СЃРµС‚РµРІРѕРіРѕ РёРЅС‚РµСЂС„РµР№СЃР°
 	SAFEARRAY FAR* STDMETHODCALLTYPE GetHostProfileList(const networktools::manager::IEthernetProfile& profile) const throw();
 public:
-	/// @brief Ставит задачу в очередь
+	/// @brief РЎС‚Р°РІРёС‚ Р·Р°РґР°С‡Сѓ РІ РѕС‡РµСЂРµРґСЊ
 	///
-	/// @param[in] typeScan тип сканирования
-	/// @return Возвращает id задачи
+	/// @param[in] typeScan С‚РёРї СЃРєР°РЅРёСЂРѕРІР°РЅРёСЏ
+	/// @return Р’РѕР·РІСЂР°С‰Р°РµС‚ id Р·Р°РґР°С‡Рё
 	manager::IdScanTask STDMETHODCALLTYPE AddTask(const manager::enums::TypeScan typeScan) throw();
-	/// @brief Проверка завершение выполнения задачи
+	/// @brief РџСЂРѕРІРµСЂРєР° Р·Р°РІРµСЂС€РµРЅРёРµ РІС‹РїРѕР»РЅРµРЅРёСЏ Р·Р°РґР°С‡Рё
 	/// 
-	/// @param[in] idTask задача 
-	/// @return Возвращает true если задача заврешена
+	/// @param[in] idTask Р·Р°РґР°С‡Р° 
+	/// @return Р’РѕР·РІСЂР°С‰Р°РµС‚ true РµСЃР»Рё Р·Р°РґР°С‡Р° Р·Р°РІСЂРµС€РµРЅР°
 	bool STDMETHODCALLTYPE IsTask(const manager::IdScanTask idTask) const throw();
 private:
-	/// осуществляет поиск устройств в сети
+	/// РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РїРѕРёСЃРє СѓСЃС‚СЂРѕР№СЃС‚РІ РІ СЃРµС‚Рё
 	network::ManagerPtr manager_;
 private:
-	/// Содержит количество ссылок на объект
+	/// РЎРѕРґРµСЂР¶РёС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃСЃС‹Р»РѕРє РЅР° РѕР±СЉРµРєС‚
 	ULONG ref_;
 };
 }

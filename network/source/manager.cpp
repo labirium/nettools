@@ -8,7 +8,7 @@ using namespace network;
 
 namespace
 {
-/// @brief Возвращает уникальное значеие задачи
+/// @brief Р’РѕР·РІСЂР°С‰Р°РµС‚ СѓРЅРёРєР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРёРµ Р·Р°РґР°С‡Рё
 ///
 IdScanTask CreateIdScanTask(void)
 {
