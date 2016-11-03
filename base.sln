@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "network", "network\network.vcxproj", "{5934A30E-5CE2-4BEF-B960-C140B5284ECF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "networktest", "network\networktest.vcxproj", "{FC4559FC-8789-494A-9CC9-FA9A4D4A769C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "networktools", "networktools\networktools.vcxproj", "{8C13A81B-555C-4D92-BE51-BB12B35C656F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unitest", "unitest", "{5ADAE978-C6CD-403B-97DD-769441394F36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networktoolstest", "networktools\networktoolstest.csproj", "{D11F4F90-D743-43AE-A369-EB5193C950B0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8C13A81B-555C-4D92-BE51-BB12B35C656F} = {8C13A81B-555C-4D92-BE51-BB12B35C656F}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5934A30E-5CE2-4BEF-B960-C140B5284ECF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5934A30E-5CE2-4BEF-B960-C140B5284ECF}.Debug|Win32.Build.0 = Debug|Win32
+		{5934A30E-5CE2-4BEF-B960-C140B5284ECF}.Debug|x64.ActiveCfg = Debug|x64
+		{5934A30E-5CE2-4BEF-B960-C140B5284ECF}.Debug|x64.Build.0 = Debug|x64
+		{5934A30E-5CE2-4BEF-B960-C140B5284ECF}.Release|Win32.ActiveCfg = Release|Win32
+		{5934A30E-5CE2-4BEF-B960-C140B5284ECF}.Release|Win32.Build.0 = Release|Win32
+		{5934A30E-5CE2-4BEF-B960-C140B5284ECF}.Release|x64.ActiveCfg = Release|x64
+		{5934A30E-5CE2-4BEF-B960-C140B5284ECF}.Release|x64.Build.0 = Release|x64
+		{FC4559FC-8789-494A-9CC9-FA9A4D4A769C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FC4559FC-8789-494A-9CC9-FA9A4D4A769C}.Debug|Win32.Build.0 = Debug|Win32
+		{FC4559FC-8789-494A-9CC9-FA9A4D4A769C}.Debug|x64.ActiveCfg = Debug|x64
+		{FC4559FC-8789-494A-9CC9-FA9A4D4A769C}.Debug|x64.Build.0 = Debug|x64
+		{FC4559FC-8789-494A-9CC9-FA9A4D4A769C}.Release|Win32.ActiveCfg = Release|Win32
+		{FC4559FC-8789-494A-9CC9-FA9A4D4A769C}.Release|Win32.Build.0 = Release|Win32
+		{FC4559FC-8789-494A-9CC9-FA9A4D4A769C}.Release|x64.ActiveCfg = Release|x64
+		{FC4559FC-8789-494A-9CC9-FA9A4D4A769C}.Release|x64.Build.0 = Release|x64
+		{8C13A81B-555C-4D92-BE51-BB12B35C656F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8C13A81B-555C-4D92-BE51-BB12B35C656F}.Debug|Win32.Build.0 = Debug|Win32
+		{8C13A81B-555C-4D92-BE51-BB12B35C656F}.Debug|x64.ActiveCfg = Debug|x64
+		{8C13A81B-555C-4D92-BE51-BB12B35C656F}.Debug|x64.Build.0 = Debug|x64
+		{8C13A81B-555C-4D92-BE51-BB12B35C656F}.Release|Win32.ActiveCfg = Release|Win32
+		{8C13A81B-555C-4D92-BE51-BB12B35C656F}.Release|Win32.Build.0 = Release|Win32
+		{8C13A81B-555C-4D92-BE51-BB12B35C656F}.Release|x64.ActiveCfg = Release|x64
+		{8C13A81B-555C-4D92-BE51-BB12B35C656F}.Release|x64.Build.0 = Release|x64
+		{D11F4F90-D743-43AE-A369-EB5193C950B0}.Debug|Win32.ActiveCfg = Debug|x86
+		{D11F4F90-D743-43AE-A369-EB5193C950B0}.Debug|Win32.Build.0 = Debug|x86
+		{D11F4F90-D743-43AE-A369-EB5193C950B0}.Debug|x64.ActiveCfg = Debug|x64
+		{D11F4F90-D743-43AE-A369-EB5193C950B0}.Debug|x64.Build.0 = Debug|x64
+		{D11F4F90-D743-43AE-A369-EB5193C950B0}.Release|Win32.ActiveCfg = Release|x86
+		{D11F4F90-D743-43AE-A369-EB5193C950B0}.Release|Win32.Build.0 = Release|x86
+		{D11F4F90-D743-43AE-A369-EB5193C950B0}.Release|x64.ActiveCfg = Release|x64
+		{D11F4F90-D743-43AE-A369-EB5193C950B0}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC4559FC-8789-494A-9CC9-FA9A4D4A769C} = {5ADAE978-C6CD-403B-97DD-769441394F36}
+		{D11F4F90-D743-43AE-A369-EB5193C950B0} = {5ADAE978-C6CD-403B-97DD-769441394F36}
+	EndGlobalSection
+EndGlobal

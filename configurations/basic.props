@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <MainDir>$(SolutionDir)</MainDir>
+    <LibDir>$(MainDir)\lib\$(PlatformName)\$(ConfigurationName)</LibDir>
+    <ContribDir>$(MainDir)\contrib</ContribDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutDir>$(MainDir)\bin\$(PlatformName)_$(Configuration)\$(ConfigurationName)\$(SolutionName)\</OutDir>
+    <IntDir>$(MainDir)\temp\$(PlatformName)_$(Configuration)\$(ConfigurationName)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PrecompiledHeaderFile>$(ProjectName)\include\precompiled.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(MainDir);$(ContribDir);$(ProjectDir);%(AdditionalIncludeDirectories);%(PreprocessorDefinitions);</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AdditionalOptions>-Zm200 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Link>
+      <ProgramDatabaseFile>$(OutDir)\map\pdb\$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+    <Link>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+    <Link>
+      <MapFileName>$(OutDir)\map\$(TargetName).map</MapFileName>
+    </Link>
+    <Link>
+      <AssemblyDebug>false</AssemblyDebug>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="MainDir">
+      <Value>$(MainDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibDir">
+      <Value>$(LibDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ContribDir">
+      <Value>$(ContribDir)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
