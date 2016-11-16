@@ -4,3 +4,6 @@ contrib/
 *.opensdf
 *.sdf
 *.cache
+temp/
+bin/
+*.suo
